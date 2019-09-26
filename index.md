@@ -6,4 +6,7 @@ of rechtstreeks in
 [github](https://github.com/coentjo/div/blob/master/index.md)
 
 
-[Spiek](ghpage-cheatsheet)
+## Overzicht
+
+- [stage](stage.md)
+- [Spiek](ghpage-cheatsheet)
