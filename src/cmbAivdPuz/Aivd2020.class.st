@@ -1,14 +1,15 @@
 Class {
-	#name : #AivdWorld,
+	#name : #Aivd2020,
 	#superclass : #Object,
 	#category : #cmbAivdPuz
 }
 
 { #category : #'as yet unclassified' }
-AivdWorld >> gerechtenMap [
-	| b |
+Aivd2020 >> gerechtenMap [
+
 	<gtExample>
+	| b |
 	b := RTMapLocationBuilder new.
 	b shape circle size: 3.
-	
+	b 
 ]
