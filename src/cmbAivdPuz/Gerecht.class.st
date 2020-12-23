@@ -5,7 +5,8 @@ Class {
 		'anagram',
 		'means',
 		'country',
-		'latLong'
+		'latLong',
+		'indexInCol'
 	],
 	#classInstVars : [
 		'latitude',
@@ -27,7 +28,8 @@ Gerecht class >> for: aAna means: aDish from: aCountry [
 
 { #category : #accessing }
 Gerecht >> anagram [
-	^ anagram
+
+	^ anagram ifNil: [ '-???-' ]
 ]
 
 { #category : #accessing }
@@ -37,12 +39,29 @@ Gerecht >> anagram: aString [
 
 { #category : #accessing }
 Gerecht >> country [
-	^ country
+
+	^ country ifNil: [ '-???-' ]
 ]
 
 { #category : #accessing }
 Gerecht >> from: aString [ 
 	country := aString 
+]
+
+{ #category : #testing }
+Gerecht >> gpsYetUnknown [
+
+	^ latLong = nil
+]
+
+{ #category : #accessing }
+Gerecht >> indexInCol [
+	^ indexInCol
+]
+
+{ #category : #accessing }
+Gerecht >> indexInCol: anInteger [ 
+	indexInCol := anInteger 
 ]
 
 { #category : #accessing }
@@ -69,12 +88,18 @@ Gerecht >> latitudeLongitude: aPoint [
 
 { #category : #accessing }
 Gerecht >> means [
-	^ means
+
+	^ means ifNil: [ '-???-' ]
 ]
 
 { #category : #accessing }
 Gerecht >> means: aString [ 
 	means := aString 
+]
+
+{ #category : #testing }
+Gerecht >> meansYetUnknow [
+	^ means = nil
 ]
 
 { #category : #accessing }
