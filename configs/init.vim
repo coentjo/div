@@ -6,6 +6,8 @@ let g:loaded_perl_provider=0
 " Plugins
 " ==========
 
+"To install vim-plug:  
+" curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
 call plug#begin('~/.vim/plugged')
 
@@ -23,8 +25,8 @@ Plug 'vim-scripts/indentpython'
 Plug 'w0rp/ale'
 Plug 'SirVer/ultisnips'
 Plug 'tpope/vim-fugitive'
+Plug 'godlygeek/tabular'      " needed by preservim/vim-markdown
 " Plug 'preservim/vim-markdown'
-" Plug 'godlygeek/tabular'      " needed by preservim/vim-markdown
 " Plug 'epwalsh/obsidian.nvim'
 
 
@@ -42,7 +44,7 @@ noremap <Down> <NOP>
 noremap <Left> :prev<CR>
 noremap <Right> :next<CR>
 
-" set clipboard^=unnamed
+set clipboard=unnamed
 
 " next/previous file
 nmap <C-+> :next
