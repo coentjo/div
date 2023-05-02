@@ -4,6 +4,9 @@ let g:loaded_perl_provider=0
 
 " to remove ^M:    :%s/\(.\)\r/\1/
 
+" this config file is in git repo:
+" https://github.com/coentjo/div.git
+
 " ==========
 " Plugins
 " ==========
