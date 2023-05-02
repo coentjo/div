@@ -2,17 +2,25 @@ let g:python3_host_prog='/usr/local/bin/python3'
 let g:loaded_ruby_provider=0
 let g:loaded_perl_provider=0
 
+" to remove ^M:    :%s/\(.\)\r/\1/
+
 " ==========
 " Plugins
 " ==========
 
 "To install vim-plug:  
 " curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+ 
+" :PlugStatus to get an overview of the Plug status
+ 
+"
 
-call plug#begin('~/.vim/plugged')
+" Using Vimscript to install some Plugins
+call plug#begin('~/.vim/plugged') 
 
-
-" Collection of Color schemes
+" lua << EOF "
+" vim.fn['plug#begin']() "
+" local Plug = vim.fn['plug#'](args) "
 Plug 'rafi/awesome-vim-colorschemes'
 Plug 'wellle/targets.vim'
 Plug 'junegunn/vim-peekaboo'
@@ -25,17 +33,38 @@ Plug 'vim-scripts/indentpython'
 Plug 'w0rp/ale'
 Plug 'SirVer/ultisnips'
 Plug 'tpope/vim-fugitive'
-Plug 'godlygeek/tabular'      " needed by preservim/vim-markdown
-" Plug 'preservim/vim-markdown'
-" Plug 'epwalsh/obsidian.nvim'
-
-
+Plug 'godlygeek/tabular'      " needed by preservim/vim-markdown "
+Plug 'preservim/vim-markdown'
+" Plug 'epwalsh/obsidian.nvim'  "
+Plug  'MunifTanjim/nui.nvim'   " needed by Plug  'jackMort/ChatGPT.nvim' "
+Plug  'nvim-lua/plenary.nvim'   " needed by Plug  'jackMort/ChatGPT.nvim' "
+Plug  'nvim-telescope/telescope.nvim'   " needed by Plug  'jackMort/ChatGPT.nvim' "
+Plug  'jackMort/ChatGPT.nvim'
+" vim.fn['plug#end']() "
+" EOF "
 call plug#end() 
 
 
-" Use the colorscheme
+" Using Lua to install some more
+
+"lua << EOF
+  "vim.fn['plug#begin']()
+  "local Plug = vim.fn['plug#'](args)
+  "Plug('preservim/vim-markdown')
+  "vim.fn['plug#end']()
+"EOF
+
+
+" Use the colorscheme "
 colorscheme elflord
 
+" local tbl = {1, 2, 3}"
+" for k, v in ipairs(tbl) do"
+"   print(v)"
+" end"
+lua << EOF
+print("Hey Coen, I'm using .config/nvim/init.vim")
+EOF
 
 
 " Prevent a user from using arrow keys
@@ -54,6 +83,9 @@ nnoremap <C-j> :tabprev<CR>
 nnoremap <C-k> :tabnext<CR>
 nnoremap <C-h> <C-w>h   " to left tab
 nnoremap <C-l> <C-w>l   " to right tab
+
+" go file
+:map gf :tabe <cfile><CR>
 
 
 "  new split should appear below or right
@@ -119,4 +151,10 @@ let g:ale_fixers = {
 	\}
 let g:ale_fix_on_save = 1
 
+nnoremap ]r :ALENextWrap<CR>
+nnoremap [r :ALEPreviousWrap<CR>
 
+noremap <F5> :w !python3 %<CR>
+inoremap <F5> <ESC>:w !python3 %<CR>
+
+set rtp+=/usr/local/opt/fzf
