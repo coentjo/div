@@ -24,8 +24,10 @@ call plug#begin('~/.vim/plugged')
 " lua << EOF "
 " vim.fn['plug#begin']() "
 " local Plug = vim.fn['plug#'](args) "
+" Plug  'quarto-dev/quarto-nvim'
 Plug 'rafi/awesome-vim-colorschemes'
 Plug 'wellle/targets.vim'
+" Plug 'nvim-treesitter/nvim-treesitter'
 Plug 'junegunn/vim-peekaboo'
 Plug 'ap/vim-buftabline'
 Plug 'roman/golden-ratio'
@@ -42,7 +44,12 @@ Plug 'preservim/vim-markdown'
 Plug  'MunifTanjim/nui.nvim'   " needed by Plug  'jackMort/ChatGPT.nvim' "
 Plug  'nvim-lua/plenary.nvim'   " needed by Plug  'jackMort/ChatGPT.nvim' "
 Plug  'nvim-telescope/telescope.nvim'   " needed by Plug  'jackMort/ChatGPT.nvim' "
-Plug  'jackMort/ChatGPT.nvim'
+Plug  'chrisbra/unicode.vim'
+Plug  'EVODelavega/vim-eazy-timer'
+Plug  'voldikss/vim-floaterm'
+" Plug  'quarto-dev/quarto-nvim'
+" Plug  'jackMort/ChatGPT.nvim'
+
 " vim.fn['plug#end']() "
 " EOF "
 call plug#end() 
@@ -159,5 +166,7 @@ nnoremap [r :ALEPreviousWrap<CR>
 
 noremap <F5> :w !python3 %<CR>
 inoremap <F5> <ESC>:w !python3 %<CR>
+noremap <F6> :w !quarto render --to pdf <CR>
+inoremap <F6> :w !quarto render --to pdf <CR>
 
 set rtp+=/usr/local/opt/fzf
