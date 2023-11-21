@@ -33,19 +33,20 @@ def read_file_into_list(aFile):
     with open(aFile, 'r') as file:
         for line in file.read().split('\n'):
             lines.append(line)
-    print(f"num: {len(lines)}")
-    print(lines)
     return lines
 
 
 def copy_sh_cmd_in_buffer(command):
     # copy CMD in buffer, because cannot easy 'cd' from python-script.
     print(f'Command will be copied into paste buffer: "{command}"')
-    print(f'echo "{command}" | pbcopy')
+    #print(f'echo "{command}" | pbcopy')
     os.system(f'echo "{command}" | pbcopy')
 
+def get_projects_file():
+    return "/Users/croc02/Downloads/_projects.yaml"
+
 def choose_project():
-    options = read_file_into_list("~/Downloads/_projects.yaml")
+    options = read_file_into_list(get_projects_file())
     print("Please choose an option:")
 
     for i, option in enumerate(options):
@@ -56,7 +57,7 @@ def choose_project():
     # Validate and respond to the choice
     try:
         choice = int(choice)
-        if 1 <= choice <= len(options):
+        if 0 <= choice < len(options):
             print(f"You chose {options[choice]},  will be copied into buffer!")
             CMD = f"cd {options[choice]}"
             copy_sh_cmd_in_buffer(CMD)
