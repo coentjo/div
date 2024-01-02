@@ -18,6 +18,9 @@ def showHelp():
     print(" -p  : projects")
     print(" -c  : cal(endar) files")
 
+def get_projects_file():
+    return "/Users/croc02/Downloads/_projects.yaml"
+
 def actOn(argv):
     opt = argv[1]
     if opt == '-n':
@@ -41,9 +44,6 @@ def copy_sh_cmd_in_buffer(command):
     print(f'Command will be copied into paste buffer: "{command}"')
     #print(f'echo "{command}" | pbcopy')
     os.system(f'echo "{command}" | pbcopy')
-
-def get_projects_file():
-    return "/Users/croc02/Downloads/_projects.yaml"
 
 def choose_project():
     options = read_file_into_list(get_projects_file())
