@@ -16,6 +16,7 @@ def showHelp():
     print(" -h : hi-prio actions")
     print(" -n  : now (overview)")
     print(" -p  : projects")
+    print(" -e  : open projects-file in your favorite editor")
     print(" -c  : cal(endar) files")
 
 def get_projects_file():
@@ -29,6 +30,8 @@ def actOn(argv):
         return choose_project()
     if opt == '-c':
         return showCalendar()
+    if opt == '-e':
+        return open_in_editor(get_projects_file())
 
 def read_file_into_list(aFile):
     lines = []
@@ -69,7 +72,10 @@ def choose_project():
 def showCalendar():
     CMD = "ls ~/Downloads/ | grep -i '^cal'"
     returnValue = os.system(CMD)
-    
+
+def open_in_editor(file_path):
+    CMD = f"nvim {file_path}"
+    returnValue = os.system(CMD)
 
 if __name__ == "__main__":
     CMD = "clear"
