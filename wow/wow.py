@@ -20,7 +20,7 @@ def showHelp():
     print(" -c  : cal(endar) files")
 
 def get_projects_file():
-    return "/Users/croc02/Downloads/_projects.yaml"
+    return "/Users/croc02/Downloads/_projects.md"
 
 def actOn(argv):
     opt = argv[1]
