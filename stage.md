@@ -26,4 +26,3 @@ Stage - Diversen
 Laat zien dat je een Software Engineer met HBO-niveau bent.
 - Professionele Houding
 - Als je wilt: connect via LinkedIn
-- Tip: www.beterspellen.nl : dagelijks 3 vragen, 2 minuten.
